@@ -10,22 +10,15 @@ app.get('/', (req, res) => {
   });
 
 io.on('connection', (socket) => {
-  socket.on('chat message', (message) => {
-    logger.info('new message', message);
-    const { roomID } = message
-    io.to(roomID).emit('new message', { ...message, socketId: socket.id });
-    
-  });
-  socket.on('join_room', (message) => {
-    logger.info('join_room', message);
+
+  socket.on('join', (message) => {
     const { roomID } = message
     socket.join(roomID);
-    io.to(roomID).emit('new message', { ...message, socketId: socket.id });
+  
   });
-  socket.on('message', (message) => {
-    logger.info('join_room', message);
+  socket.on('message', (message) => {    
     const { roomID } = message
-    io.to(roomID).emit('new message', { ...message, socketId: socket.id });
+    io.to(roomID).emit('message', { ...message, socketId: socket.id });
   });
   socket.on('disconnect', () => {
     console.log('user disconnected');
