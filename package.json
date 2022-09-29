@@ -1,0 +1,19 @@
+{
+  "name": "socket-v4-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hryjosn/socket-v4-starter.git",
+  "author": "Henry Johnson <jo74705@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
